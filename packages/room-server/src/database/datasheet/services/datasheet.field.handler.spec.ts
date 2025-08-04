@@ -1,5 +1,5 @@
 import { FieldType, IForeignDatasheetMap, INodeMeta, IRecordMap, SegmentType, ViewType } from '@apitable/core';
-import '@apitable/i18n-lang';
+import 'apitable-i18n-lang';
 import { DatasheetFieldHandler, IFieldAnalysisResult } from './datasheet.field.handler';
 import { Logger } from 'winston';
 import { DatasheetMetaService } from './datasheet.meta.service';

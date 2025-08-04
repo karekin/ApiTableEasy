@@ -17,7 +17,7 @@
  */
 
 import { ApiTipConstant } from '@apitable/core';
-import '@apitable/i18n-lang';
+import 'apitable-i18n-lang';
 import { RestService } from 'shared/services/rest/rest.service';
 import { ApiException, CommonException, ServerException } from '../../../shared/exception';
 import { ApiUsageGuard } from './api.usage.guard';

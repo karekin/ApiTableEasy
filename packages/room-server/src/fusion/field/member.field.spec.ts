@@ -17,7 +17,7 @@
  */
 
 import { FieldType, IMemberField } from '@apitable/core';
-import '@apitable/i18n-lang';
+import 'apitable-i18n-lang';
 import { MemberField } from 'fusion/field/member.field';
 import { UnitMemberService } from 'unit/services/unit.member.service';
 import { UnitService } from 'unit/services/unit.service';

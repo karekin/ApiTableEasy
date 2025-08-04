@@ -17,7 +17,7 @@
  */
 
 import { ApiTipConstant } from '@apitable/core';
-import '@apitable/i18n-lang';
+import 'apitable-i18n-lang';
 import { FieldCreateRo } from 'fusion/ros/field.create.ro';
 import { ApiException } from 'shared/exception';
 import { CreateFieldPipe } from './create.field.pipe';

@@ -17,7 +17,7 @@
  */
 
 import { ApiTipConstant } from '@apitable/core';
-import '@apitable/i18n-lang';
+import 'apitable-i18n-lang';
 import { Reflector } from '@nestjs/core';
 import { ApiException } from '../../../shared/exception';
 import { ApiFieldGuard } from './api.field.guard';

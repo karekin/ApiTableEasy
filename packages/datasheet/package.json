@@ -22,12 +22,11 @@
     "node": "16.15.0"
   },
   "dependencies": {
-    "@apitable/ai": "workspace:*",
     "@apitable/api-client": "workspace:*",
-    "@apitable/components": "workspace:*",
+    "@apitable/components": "1.4.0",
     "@apitable/core": "workspace:*",
-    "@apitable/i18n-lang": "workspace:*",
-    "@apitable/icons": "workspace:*",
+    "apitable-i18n-lang": "^1.13.0",
+    "@apitable/icons": "1.4.0",
     "@apitable/react-flow": "^9.6.12",
     "@apitable/widget-sdk": "workspace:*",
     "@floating-ui/react": "0.24.5",

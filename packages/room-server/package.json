@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@apitable/core": "workspace:*",
-    "@apitable/i18n-lang": "workspace:*",
+    "apitable-i18n-lang": "1.13.0",
     "@apitable/nestjs-redis": "1.3.4",
     "@aws-sdk/client-s3": "3.47.0",
     "@elastic/ecs-helpers": "1.1.0",
@@ -200,9 +200,6 @@
     "transformIgnorePatterns": [
       "^.+\\.js$"
     ],
-    "moduleNameMapper": {
-      "@apitable/databus-wasm-web": "<rootDir>/_skip_transpile_databus_wasm_web.ts"
-    },
     "moduleDirectories": [
       "dist",
       "node_modules",
