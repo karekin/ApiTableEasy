@@ -20,7 +20,7 @@
  * read strings.auto.json,  go translation
  */
 import { I18N } from '@apitable/i18n';
-import LANGUAGE_DATA from 'apitable-i18n-lang/src/config/strings.json';
+import LANGUAGE_DATA from 'apitable-i18n-lang/dist/config/strings.json';
 import type { StringKeysMapType, StringKeysType } from '../../config/stringkeys.interface';
 
 export { StringKeysMapType, StringKeysType };

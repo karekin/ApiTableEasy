@@ -26,21 +26,21 @@ import { BindAccount } from 'modules/shared/store/constants';
 import { IAxiosResponse, MemberType } from 'types';
 import urlcat from 'urlcat';
 import {
-  IAdData,
-  ICommitRemind,
-  ICreateNotification,
-  IGetRoleListResponse,
-  IGetRoleMemberListResponse,
-  IGetSpaceAuditReq,
-  IGetUploadCertificateResponse,
-  ILabsFeatureListResponse,
-  ILoadOrSearchArg,
-  INodeInfoWindowResponse,
-  INoPermissionMemberResponse,
-  IRecentlyBrowsedFolder,
-  ISubscribeActiveEventResponse,
-  ITemplateRecommendResponse,
-  IUpdateSecuritySetting,
+    IAdData,
+    ICommitRemind,
+    ICreateNotification,
+    IGetRoleListResponse,
+    IGetRoleMemberListResponse,
+    IGetSpaceAuditReq,
+    IGetUploadCertificateResponse,
+    ILabsFeatureListResponse,
+    ILoadOrSearchArg,
+    INodeInfoWindowResponse,
+    INoPermissionMemberResponse,
+    IRecentlyBrowsedFolder,
+    ISubscribeActiveEventResponse,
+    ITemplateRecommendResponse,
+    IUpdateSecuritySetting,
 } from './api.interface';
 import { WasmApi } from '../../database/api';
 import { getBrowserDatabusApiEnabled } from 'modules/database/api/wasm';
@@ -60,9 +60,9 @@ const nestBaseURL = process.env.NEXT_PUBLIC_NEXT_API;
  * @param file
  */
 export function uploadAttach(file: any) {
-  return axios.post(Url.UPLOAD_ATTACH, file, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
+    return axios.post(Url.UPLOAD_ATTACH, file, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+    });
 }
 
 /**
@@ -73,10 +73,10 @@ export function uploadAttach(file: any) {
  * @param attname
  */
 export function getAttachPreviewUrl(spaceId: string, token: string, attname: string) {
-  return axios.post(urlcat(Url.OFFICE_PREVIEW, { spaceId }), {
-    token,
-    attname,
-  });
+    return axios.post(urlcat(Url.OFFICE_PREVIEW, { spaceId }), {
+        token,
+        attname,
+    });
 }
 
 /**
@@ -86,16 +86,16 @@ export function getAttachPreviewUrl(spaceId: string, token: string, attname: str
  * @returns
  */
 export function unBindAccount(type: BindAccount) {
-  return axios.post(Url.UN_BIND, {
-    type,
-  });
+    return axios.post(Url.UN_BIND, {
+        type,
+    });
 }
 
 /**
  * get notifications statistics
  */
 export function getNotificationStatistics() {
-  return axios.get(Url.NOTIFICATION_STATISTICS);
+    return axios.get(Url.NOTIFICATION_STATISTICS);
 }
 
 /**
@@ -104,13 +104,13 @@ export function getNotificationStatistics() {
  * @param rowNo
  */
 export function getNotificationPage(isRead?: boolean, rowNo?: number) {
-  return axios.get(Url.NOTIFICATION_PAGE, {
-    params: {
-      isRead: isRead ? 1 : 0,
-      rowNo,
-      pageSize: ConfigConstant.NOTICE_LIST_SIZE,
-    },
-  });
+    return axios.get(Url.NOTIFICATION_PAGE, {
+        params: {
+            isRead: isRead ? 1 : 0,
+            rowNo,
+            pageSize: ConfigConstant.NOTICE_LIST_SIZE,
+        },
+    });
 }
 
 /**
@@ -121,12 +121,12 @@ export function getNotificationPage(isRead?: boolean, rowNo?: number) {
  * @returns
  */
 export function getNotificationList(isRead?: boolean, notifyType?: string) {
-  return axios.get(Url.NOTIFICATION_LIST, {
-    params: {
-      isRead: isRead ? 1 : 0,
-      notifyType,
-    },
-  });
+    return axios.get(Url.NOTIFICATION_LIST, {
+        params: {
+            isRead: isRead ? 1 : 0,
+            notifyType,
+        },
+    });
 }
 
 /**
@@ -135,7 +135,7 @@ export function getNotificationList(isRead?: boolean, notifyType?: string) {
  * @returns
  */
 export function createNotification(data: ICreateNotification[]) {
-  return axios.post(Url.CREATE_NOTIFICATION, data);
+    return axios.post(Url.CREATE_NOTIFICATION, data);
 }
 
 /**
@@ -145,10 +145,10 @@ export function createNotification(data: ICreateNotification[]) {
  * @param reportReason
  */
 export function createReport(nodeId: string, reportReason: string) {
-  return axios.post(Url.CREATE_REPORTS, {
-    nodeId,
-    reportReason,
-  });
+    return axios.post(Url.CREATE_REPORTS, {
+        nodeId,
+        reportReason,
+    });
 }
 
 /**
@@ -157,10 +157,10 @@ export function createReport(nodeId: string, reportReason: string) {
  * @param isAll  total or not
  */
 export function transferNoticeToRead(id: string[], isAll?: boolean) {
-  return axios.post(Url.TRANSFER_NOTICE_TO_READ, {
-    id,
-    isAll: isAll ? 1 : 0,
-  });
+    return axios.post(Url.TRANSFER_NOTICE_TO_READ, {
+        id,
+        isAll: isAll ? 1 : 0,
+    });
 }
 
 /**
@@ -171,11 +171,11 @@ export function transferNoticeToRead(id: string[], isAll?: boolean) {
  * @returns
  */
 export function createTemplate(nodeId: string, name: string, data = true) {
-  return axios.post(Url.CREATE_TEMPLATE, {
-    nodeId,
-    name,
-    data,
-  });
+    return axios.post(Url.CREATE_TEMPLATE, {
+        nodeId,
+        name,
+        data,
+    });
 }
 
 /**
@@ -184,11 +184,11 @@ export function createTemplate(nodeId: string, name: string, data = true) {
  * @returns
  */
 export function getTemplateCategory(categoryCodes?: string) {
-  return axios.get(Url.OFFICIAL_TEMPLATE_CATEGORY, {
-    params: {
-      categoryCodes,
-    },
-  });
+    return axios.get(Url.OFFICIAL_TEMPLATE_CATEGORY, {
+        params: {
+            categoryCodes,
+        },
+    });
 }
 
 /**
@@ -200,13 +200,13 @@ export function getTemplateCategory(categoryCodes?: string) {
  * @returns
  */
 export function getTemplateList(spaceId: string, categoryCode?: string, isPrivate?: boolean, headers?: Record<string, string>) {
-  return axios.get(urlcat(Url.SPACE_TEMPLATES, { spaceId }), {
-    params: {
-      categoryCode,
-      isPrivate,
-    },
-    headers,
-  });
+    return axios.get(urlcat(Url.SPACE_TEMPLATES, { spaceId }), {
+        params: {
+            categoryCode,
+            isPrivate,
+        },
+        headers,
+    });
 }
 
 /**
@@ -216,9 +216,9 @@ export function getTemplateList(spaceId: string, categoryCode?: string, isPrivat
  * @returns
  */
 export function getTemplateCategories(categoryCode: string, headers?: Record<string, string>) {
-  return axios.get(urlcat(Url.TEMPLATE_CATEGORIES, { categoryCode }), {
-    headers,
-  });
+    return axios.get(urlcat(Url.TEMPLATE_CATEGORIES, { categoryCode }), {
+        headers,
+    });
 }
 
 /**
@@ -228,7 +228,7 @@ export function getTemplateCategories(categoryCode: string, headers?: Record<str
  * @returns
  */
 export const deleteTemplate = (tempalte: string) => {
-  return axios.delete(`${Url.DELETE_TEMPLATE}${tempalte}`);
+    return axios.delete(`${Url.DELETE_TEMPLATE}${tempalte}`);
 };
 
 /**
@@ -238,9 +238,9 @@ export const deleteTemplate = (tempalte: string) => {
  * @returns
  */
 export function getTemplateAlbum(albumId: string, headers?: Record<string, string>) {
-  return axios.get(urlcat(Url.TEMPLATE_ALBUMS, { albumId }), {
-    headers,
-  });
+    return axios.get(urlcat(Url.TEMPLATE_ALBUMS, { albumId }), {
+        headers,
+    });
 }
 
 /**
@@ -252,13 +252,13 @@ export function getTemplateAlbum(albumId: string, headers?: Record<string, strin
  * @returns
  */
 export function getTemplateAlbumsRecommend(albumId: string, maxCount: number, headers?: Record<string, string>) {
-  return axios.get(Url.TEMPLATE_ALBUMS_RECOMMEND, {
-    params: {
-      excludeAlbumId: albumId,
-      maxCount,
-    },
-    headers,
-  });
+    return axios.get(Url.TEMPLATE_ALBUMS_RECOMMEND, {
+        params: {
+            excludeAlbumId: albumId,
+            maxCount,
+        },
+        headers,
+    });
 }
 
 /**
@@ -269,13 +269,13 @@ export function getTemplateAlbumsRecommend(albumId: string, maxCount: number, he
  * @returns
  */
 export const templateDirectory = (templateId: string, isPrivate: boolean, categoryCode?: string) => {
-  return axios.get(Url.TEMPLATE_DIRECTORY, {
-    params: {
-      templateId,
-      isPrivate,
-      categoryCode,
-    },
-  });
+    return axios.get(Url.TEMPLATE_DIRECTORY, {
+        params: {
+            templateId,
+            isPrivate,
+            categoryCode,
+        },
+    });
 };
 
 /**
@@ -288,18 +288,18 @@ export const templateDirectory = (templateId: string, isPrivate: boolean, catego
  * @returns
  */
 export const useTemplate = (templateId: string, parentId: string, data?: boolean, unitId?: string) => {
-  return axios.post(Url.USE_TEMPLATE, {
-    templateId,
-    parentId,
-    data,
-    unitId,
-  });
+    return axios.post(Url.USE_TEMPLATE, {
+        templateId,
+        parentId,
+        data,
+        unitId,
+    });
 };
 
 export const triggerWizard = (wizardId: number) => {
-  return axios.post(Url.TRIGGER_WIZARD, {
-    wizardId,
-  });
+    return axios.post(Url.TRIGGER_WIZARD, {
+        wizardId,
+    });
 };
 
 /**
@@ -308,11 +308,11 @@ export const triggerWizard = (wizardId: number) => {
  * @returns
  */
 export const templateNameValidate = (name: string) => {
-  return axios.get(Url.TEMPLATE_NAME_VALIDATE, {
-    params: {
-      name,
-    },
-  });
+    return axios.get(Url.TEMPLATE_NAME_VALIDATE, {
+        params: {
+            name,
+        },
+    });
 };
 
 /**
@@ -321,9 +321,9 @@ export const templateNameValidate = (name: string) => {
  * @returns
  */
 export const templateRecommend = (headers?: Record<string, string>) => {
-  return axios.get<IApiWrapper & { data: ITemplateRecommendResponse }>(Url.TEMPLATE_RECOMMEND, {
-    headers,
-  });
+    return axios.get<IApiWrapper & { data: ITemplateRecommendResponse }>(Url.TEMPLATE_RECOMMEND, {
+        headers,
+    });
 };
 
 /**
@@ -333,37 +333,37 @@ export const templateRecommend = (headers?: Record<string, string>) => {
  * @returns
  */
 export function loadOrSearch({ filterIds, keyword, names, unitIds, linkId, all, searchEmail }: ILoadOrSearchArg): Promise<IAxiosResponse<any>> {
-  if (unitIds && unitIds.includes('opt')) {
-    return Promise.reject();
-  }
+    if (unitIds && unitIds.includes('opt')) {
+        return Promise.reject();
+    }
 
-  return axios.get(Url.LOAD_OR_SEARCH, {
-    params: {
-      filterIds,
-      keyword,
-      names,
-      unitIds,
-      linkId,
-      all,
-      searchEmail,
-    },
-  });
+    return axios.get(Url.LOAD_OR_SEARCH, {
+        params: {
+            filterIds,
+            keyword,
+            names,
+            unitIds,
+            linkId,
+            all,
+            searchEmail,
+        },
+    });
 }
 
 export function loadOrSearchEmbed(embedId: string, { filterIds, keyword, names, unitIds, linkId, all, searchEmail }: ILoadOrSearchArg) {
-  return axios.get(urlcat(Url.LOAD_OR_SEARCH_EMBED, { embedId }), {
-    baseURL: nestBaseURL,
-    params: {
-      filterIds,
-      keyword,
-      names,
-      unitIds,
-      linkId,
-      all,
-      searchEmail,
-      type: getCustomConfig().NEXT_PUBLIC_UNIT_SEARCH_TYPE 
-    },
-  });
+    return axios.get(urlcat(Url.LOAD_OR_SEARCH_EMBED, { embedId }), {
+        baseURL: nestBaseURL,
+        params: {
+            filterIds,
+            keyword,
+            names,
+            unitIds,
+            linkId,
+            all,
+            searchEmail,
+            type: getCustomConfig().NEXT_PUBLIC_UNIT_SEARCH_TYPE
+        },
+    });
 }
 
 /**
@@ -374,10 +374,10 @@ export function loadOrSearchEmbed(embedId: string, { filterIds, keyword, names, 
  * @returns
  */
 export function searchUnitInfoVo(names: string, linkId?: string) {
-  return axios.post(Url.SEARCH_UNIT_INFO_VO, {
-    names,
-    linkId,
-  });
+    return axios.post(Url.SEARCH_UNIT_INFO_VO, {
+        names,
+        linkId,
+    });
 }
 
 /**
@@ -387,11 +387,11 @@ export function searchUnitInfoVo(names: string, linkId?: string) {
  * @returns
  */
 export function commitRemind(data: ICommitRemind) {
-  // if(process.env.NEXT_PUBLIC_DISABLED_REMIND_ENDPOINT === 'true') {
-  //   return Promise.reject();
-  // }
+    // if(process.env.NEXT_PUBLIC_DISABLED_REMIND_ENDPOINT === 'true') {
+    //   return Promise.reject();
+    // }
 
-  return axios.post(Url.COMMIT_REMIND, data);
+    return axios.post(Url.COMMIT_REMIND, data);
 }
 
 /**
@@ -401,7 +401,7 @@ export function commitRemind(data: ICommitRemind) {
  * @returns
  */
 export function enableRoleExtend(nodeId: string) {
-  return axios.post(Url.ENABLE_ROLE_EXTEND + `?nodeId=${nodeId}`);
+    return axios.post(Url.ENABLE_ROLE_EXTEND + `?nodeId=${nodeId}`);
 }
 
 /**
@@ -411,15 +411,15 @@ export function enableRoleExtend(nodeId: string) {
  * @returns
  */
 export function disableRoleExtend(nodeId: string, includeExtend?: boolean) {
-  const params = includeExtend ? { includeExtend } : {};
-  if (getBrowserDatabusApiEnabled()) {
-    WasmApi.getInstance()
-      .delete_cache(nodeId)
-      .then((result) => {
-        console.log('delete indexDb cache', result);
-      });
-  }
-  return axios.post(Url.DISABLE_ROLE_EXTEND + `?nodeId=${nodeId}`, params);
+    const params = includeExtend ? { includeExtend } : {};
+    if (getBrowserDatabusApiEnabled()) {
+        WasmApi.getInstance()
+            .delete_cache(nodeId)
+            .then((result: any) => {
+                console.log('delete indexDb cache', result);
+            });
+    }
+    return axios.post(Url.DISABLE_ROLE_EXTEND + `?nodeId=${nodeId}`, params);
 }
 
 /**
@@ -429,12 +429,12 @@ export function disableRoleExtend(nodeId: string, includeExtend?: boolean) {
  * @returns
  */
 export function deleteRole(nodeId: string, unitId: string) {
-  return axios.delete(Url.DELETE_ROLE, {
-    data: {
-      nodeId,
-      unitId,
-    },
-  });
+    return axios.delete(Url.DELETE_ROLE, {
+        data: {
+            nodeId,
+            unitId,
+        },
+    });
 }
 
 /**
@@ -447,14 +447,14 @@ export function deleteRole(nodeId: string, unitId: string) {
  * @returns
  */
 export function listRole(nodeId: string, includeAdmin?: boolean, includeExtend?: boolean, includeSelf?: string) {
-  return axios.get(Url.NODE_LIST_ROLE, {
-    params: {
-      nodeId,
-      includeAdmin,
-      includeExtend,
-      includeSelf,
-    },
-  });
+    return axios.get(Url.NODE_LIST_ROLE, {
+        params: {
+            nodeId,
+            includeAdmin,
+            includeExtend,
+            includeSelf,
+        },
+    });
 }
 
 /**
@@ -466,11 +466,11 @@ export function listRole(nodeId: string, includeAdmin?: boolean, includeExtend?:
  * @returns
  */
 export function editRole(nodeId: string, unitId: string, role: string) {
-  return axios.post(Url.EDIT_ROLE, {
-    nodeId,
-    unitId,
-    role,
-  });
+    return axios.post(Url.EDIT_ROLE, {
+        nodeId,
+        unitId,
+        role,
+    });
 }
 
 /**
@@ -481,11 +481,11 @@ export function editRole(nodeId: string, unitId: string, role: string) {
  * @returns
  */
 export function batchEditRole(nodeId: string, unitIds: string[], role: string) {
-  return axios.post(Url.BATCH_EDIT_ROLE, {
-    nodeId,
-    unitIds,
-    role,
-  });
+    return axios.post(Url.BATCH_EDIT_ROLE, {
+        nodeId,
+        unitIds,
+        role,
+    });
 }
 
 /**
@@ -495,9 +495,9 @@ export function batchEditRole(nodeId: string, unitIds: string[], role: string) {
  * @returns
  */
 export function batchDeleteRole(nodeId: string, unitIds: string[]) {
-  return axios.delete(Url.BATCH_DELETE_ROLE, {
-    data: { unitIds, nodeId },
-  });
+    return axios.delete(Url.BATCH_DELETE_ROLE, {
+        data: { unitIds, nodeId },
+    });
 }
 
 /**
@@ -508,11 +508,11 @@ export function batchDeleteRole(nodeId: string, unitIds: string[]) {
  * @returns
  */
 export function addRole(nodeId: string, unitIds: string[], role: string) {
-  return axios.post(Url.ADD_ROLE, {
-    nodeId,
-    unitIds,
-    role,
-  });
+    return axios.post(Url.ADD_ROLE, {
+        nodeId,
+        unitIds,
+        role,
+    });
 }
 
 /**
@@ -524,12 +524,12 @@ export function addRole(nodeId: string, unitIds: string[], role: string) {
  * @returns
  */
 export function submitQuestionnaire(data: any) {
-  return axios({
-    method: 'post',
-    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-    url: 'https://workfun.aitable.ai/feedback-form',
-    data: { data },
-  });
+    return axios({
+        method: 'post',
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        url: 'https://workfun.aitable.ai/feedback-form',
+        data: { data },
+    });
 }
 
 /**
@@ -539,7 +539,7 @@ export function submitQuestionnaire(data: any) {
  * @returns
  */
 export function subscribeInfo(spaceId: string) {
-  return axios.get(Url.SUBSCRIBE_INFO + spaceId);
+    return axios.get(Url.SUBSCRIBE_INFO + spaceId);
 }
 
 /**
@@ -548,7 +548,7 @@ export function subscribeInfo(spaceId: string) {
  * @returns
  */
 export function getTrashList(params?: IRubbishListParams) {
-  return axios.get(Url.TRASH_LIST, { params });
+    return axios.get(Url.TRASH_LIST, { params });
 }
 
 /**
@@ -558,10 +558,10 @@ export function getTrashList(params?: IRubbishListParams) {
  * @returns
  */
 export function trashRecover(nodeId: string, parentId?: string) {
-  return axios.post(Url.TRASH_RECOVER, {
-    nodeId,
-    parentId,
-  });
+    return axios.post(Url.TRASH_RECOVER, {
+        nodeId,
+        parentId,
+    });
 }
 
 /**
@@ -570,7 +570,7 @@ export function trashRecover(nodeId: string, parentId?: string) {
  * @returns
  */
 export function trashDelete(nodeId: string) {
-  return axios.delete(`${Url.TRASH_DELETE}${nodeId}`);
+    return axios.delete(`${Url.TRASH_DELETE}${nodeId}`);
 }
 
 /**
@@ -580,7 +580,7 @@ export function trashDelete(nodeId: string) {
  * @returns
  */
 export function updateNodeFavoriteStatus(nodeId: string) {
-  return axios.post(`${Url.UPDATE_NODE_FAVORITE_STATUS}${nodeId}`);
+    return axios.post(`${Url.UPDATE_NODE_FAVORITE_STATUS}${nodeId}`);
 }
 
 /**
@@ -591,10 +591,10 @@ export function updateNodeFavoriteStatus(nodeId: string) {
  * @returns
  */
 export function moveFavoriteNode(nodeId: string, preNodeId?: string) {
-  return axios.post(Url.MOVE_FAVORITE_NODE, {
-    nodeId,
-    preNodeId,
-  });
+    return axios.post(Url.MOVE_FAVORITE_NODE, {
+        nodeId,
+        preNodeId,
+    });
 }
 
 /**
@@ -602,7 +602,7 @@ export function moveFavoriteNode(nodeId: string, preNodeId?: string) {
  * @returns
  */
 export function getFavoriteNodeList() {
-  return axios.get(Url.FAVORITE_NODE_LIST);
+    return axios.get(Url.FAVORITE_NODE_LIST);
 }
 
 /**
@@ -610,7 +610,7 @@ export function getFavoriteNodeList() {
  * @returns
  */
 export function getUserIntegral() {
-  return axios.get(Url.USER_CREDIT);
+    return axios.get(Url.USER_CREDIT);
 }
 
 /**
@@ -620,15 +620,15 @@ export function getUserIntegral() {
  * @returns
  */
 export function getUserIntegralRecords(pageNo: number) {
-  const pageObjectParams = JSON.stringify({
-    pageSize: ConfigConstant.USER_INTEGRAL_RECORDS_PAGE_SIZE,
-    order: 'createdAt',
-    sort: ConfigConstant.SORT_DESC,
-    pageNo,
-  });
-  return axios.get(Url.USER_INTEGRAL_RECORDS, {
-    params: { pageObjectParams },
-  });
+    const pageObjectParams = JSON.stringify({
+        pageSize: ConfigConstant.USER_INTEGRAL_RECORDS_PAGE_SIZE,
+        order: 'createdAt',
+        sort: ConfigConstant.SORT_DESC,
+        pageNo,
+    });
+    return axios.get(Url.USER_INTEGRAL_RECORDS, {
+        params: { pageObjectParams },
+    });
 }
 
 /**
@@ -638,11 +638,11 @@ export function getUserIntegralRecords(pageNo: number) {
  * @returns
  */
 export const getSpaceAudit = ({ spaceId, ...params }: IGetSpaceAuditReq) =>
-  axios.get(urlcat(Url.SPACE_AUDIT, { spaceId }), {
-    params: {
-      ...params,
-    },
-  });
+    axios.get(urlcat(Url.SPACE_AUDIT, { spaceId }), {
+        params: {
+            ...params,
+        },
+    });
 
 /**
  * Reedem the code award
@@ -650,7 +650,7 @@ export const getSpaceAudit = ({ spaceId, ...params }: IGetSpaceAuditReq) =>
  * @returns
  */
 export function vCodeExchange(code: string) {
-  return axios.post(Url.CODE_EXCHANGE + code);
+    return axios.post(Url.CODE_EXCHANGE + code);
 }
 
 /**
@@ -661,12 +661,12 @@ export function vCodeExchange(code: string) {
  * @returns
  */
 export function searchTemplate(keyword: string, className?: string) {
-  return axios.get(Url.TEMPLATE_SEARCH, {
-    params: {
-      keyword,
-      className,
-    },
-  });
+    return axios.get(Url.TEMPLATE_SEARCH, {
+        params: {
+            keyword,
+            className,
+        },
+    });
 }
 
 /**
@@ -676,7 +676,7 @@ export function searchTemplate(keyword: string, className?: string) {
  * @returns
  */
 export function applyJoinSpace(spaceId: string) {
-  return axios.post(Url.APPLY_JOIN_SPACE, { spaceId });
+    return axios.post(Url.APPLY_JOIN_SPACE, { spaceId });
 }
 
 /**
@@ -687,10 +687,10 @@ export function applyJoinSpace(spaceId: string) {
  * @returns
  */
 export function processSpaceJoin(notifyId: string, agree: boolean) {
-  return axios.post(Url.PROCESS_SPACE_JOIN, {
-    notifyId,
-    agree,
-  });
+    return axios.post(Url.PROCESS_SPACE_JOIN, {
+        notifyId,
+        agree,
+    });
 }
 
 /**
@@ -700,7 +700,7 @@ export function processSpaceJoin(notifyId: string, agree: boolean) {
  * @returns
  */
 export function getMarketplaceApps(spaceId: string) {
-  return axios.get(urlcat(Url.GET_MARKETPLACE_APPS, { spaceId }));
+    return axios.get(urlcat(Url.GET_MARKETPLACE_APPS, { spaceId }));
 }
 
 /**
@@ -708,7 +708,7 @@ export function getMarketplaceApps(spaceId: string) {
  * @returns
  */
 export function getAppstoreApps() {
-  return axios.get(Url.GET_APPSTORES_APPS);
+    return axios.get(Url.GET_APPSTORES_APPS);
 }
 
 /**
@@ -717,7 +717,7 @@ export function getAppstoreApps() {
  * @returns
  */
 export function getAppInstances(spaceId: string) {
-  return axios.get(urlcat(Url.APP_INSTANCE, { spaceId }));
+    return axios.get(urlcat(Url.APP_INSTANCE, { spaceId }));
 }
 
 /**
@@ -729,7 +729,7 @@ export function getAppInstances(spaceId: string) {
  * @returns
  */
 export function createAppInstance(spaceId: string, appId: string) {
-  return axios.post(Url.APP_INSTANCE, { spaceId, appId });
+    return axios.post(Url.APP_INSTANCE, { spaceId, appId });
 }
 
 /**
@@ -740,7 +740,7 @@ export function createAppInstance(spaceId: string, appId: string) {
  * @returns
  */
 export function deleteAppInstance(appInstanceId: string) {
-  return axios.delete(urlcat(Url.SINGLE_APP_INSTANCE, { appInstanceId }));
+    return axios.delete(urlcat(Url.SINGLE_APP_INSTANCE, { appInstanceId }));
 }
 
 /**
@@ -751,7 +751,7 @@ export function deleteAppInstance(appInstanceId: string) {
  * @returns
  */
 export function getAppInstanceById(appInstanceId: string) {
-  return axios.get(urlcat(Url.SINGLE_APP_INSTANCE, { appInstanceId }));
+    return axios.get(urlcat(Url.SINGLE_APP_INSTANCE, { appInstanceId }));
 }
 
 /**
@@ -761,7 +761,7 @@ export function getAppInstanceById(appInstanceId: string) {
  * @returns
  */
 export function enableApp(spaceId: string, appId: string) {
-  return axios.post(urlcat(Url.APP_ENABLE, { spaceId, appId }));
+    return axios.post(urlcat(Url.APP_ENABLE, { spaceId, appId }));
 }
 
 /**
@@ -771,7 +771,7 @@ export function enableApp(spaceId: string, appId: string) {
  * @returns
  */
 export function disableApp(spaceId: string, appId: string) {
-  return axios.post(urlcat(Url.APP_DISABLE, { spaceId, appId }));
+    return axios.post(urlcat(Url.APP_DISABLE, { spaceId, appId }));
 }
 
 /**
@@ -782,7 +782,7 @@ export function disableApp(spaceId: string, appId: string) {
  */
 // https://developer.qiniu.com/dora/1247/audio-and-video-metadata-information-avinfo
 export function getAvInfo(url: string) {
-  return axios.get(url);
+    return axios.get(url);
 }
 
 /**
@@ -792,15 +792,15 @@ export function getAvInfo(url: string) {
  * @returns
  */
 export function getSpaceAdList() {
-  return axios.get<IAdData>('https://service-p4w3x0tq-1254196833.gz.apigw.tencentcs.com/release/ads');
+    return axios.get<IAdData>('https://service-p4w3x0tq-1254196833.gz.apigw.tencentcs.com/release/ads');
 }
 
 export function unBindMobile(code: string) {
-  return axios.post<IApiWrapper>(Url.USER_UNBIND_MOBILE, { code });
+    return axios.post<IApiWrapper>(Url.USER_UNBIND_MOBILE, { code });
 }
 
 export function unBindEmail(code: string) {
-  return axios.post<IApiWrapper>(Url.USER_UNBIND_EMAIL, { code });
+    return axios.post<IApiWrapper>(Url.USER_UNBIND_EMAIL, { code });
 }
 
 /**
@@ -809,7 +809,7 @@ export function unBindEmail(code: string) {
  * @returns
  */
 export function getLabsFeature(spaceId: string) {
-  return axios.get(urlcat(Url.GET_LABS_FEATURE, { spaceId }));
+    return axios.get(urlcat(Url.GET_LABS_FEATURE, { spaceId }));
 }
 
 /**
@@ -817,7 +817,7 @@ export function getLabsFeature(spaceId: string) {
  * @returns
  */
 export function getLabsFeatureList() {
-  return axios.get<IApiWrapper & ILabsFeatureListResponse>(Url.GET_LABS_FEATURE_LIST);
+    return axios.get<IApiWrapper & ILabsFeatureListResponse>(Url.GET_LABS_FEATURE_LIST);
 }
 
 /**
@@ -828,28 +828,28 @@ export function getLabsFeatureList() {
  * @returns
  */
 export function updateLabsFeatureList(key: string, isEnabled: boolean, spaceId: string) {
-  return axios.post<IApiWrapper>(Url.GET_LABS_FEATURE, {
-    key,
-    isEnabled,
-    spaceId,
-  });
+    return axios.post<IApiWrapper>(Url.GET_LABS_FEATURE, {
+        key,
+        isEnabled,
+        spaceId,
+    });
 }
 
 export function updateSecuritySetting(config: IUpdateSecuritySetting) {
-  return axios.post<IApiWrapper>(Url.UPDATE_SECURITY_SETTING, config);
+    return axios.post<IApiWrapper>(Url.UPDATE_SECURITY_SETTING, config);
 }
 
 export function applyResourceChangesets(changesets: ILocalChangeset[], roomId: string) {
-  return axios.post<IApiWrapper & { data: IGetCommentsByIdsResponse }>(
-    Url.APPLY_RESOURCE_CHANGESETS,
-    {
-      changesets,
-      roomId,
-    },
-    {
-      baseURL: nestBaseURL,
-    }
-  );
+    return axios.post<IApiWrapper & { data: IGetCommentsByIdsResponse }>(
+        Url.APPLY_RESOURCE_CHANGESETS,
+        {
+            changesets,
+            roomId,
+        },
+        {
+            baseURL: nestBaseURL,
+        }
+    );
 }
 
 /**
@@ -858,7 +858,7 @@ export function applyResourceChangesets(changesets: ILocalChangeset[], roomId: s
  * @returns
  */
 export function getNodeInfoWindow(nodeId: string) {
-  return axios.get<IApiWrapper & { data: INodeInfoWindowResponse }>(urlcat(Url.GET_NODE_INFO_WINDOW, { nodeId }));
+    return axios.get<IApiWrapper & { data: INodeInfoWindowResponse }>(urlcat(Url.GET_NODE_INFO_WINDOW, { nodeId }));
 }
 
 /**
@@ -869,10 +869,10 @@ export function getNodeInfoWindow(nodeId: string) {
  * @returns
  */
 export function getNoPermissionMember(nodeId: string, unitIds: string[]) {
-  // if(process.env.NEXT_PUBLIC_DISABLED_REMIND_ENDPOINT === 'true') {
-  //   return Promise.reject();
-  // }
-  return axios.post<IApiWrapper & INoPermissionMemberResponse>(Url.NO_PERMISSION_MEMBER, { nodeId, unitIds });
+    // if(process.env.NEXT_PUBLIC_DISABLED_REMIND_ENDPOINT === 'true') {
+    //   return Promise.reject();
+    // }
+    return axios.post<IApiWrapper & INoPermissionMemberResponse>(Url.NO_PERMISSION_MEMBER, { nodeId, unitIds });
 }
 
 /**
@@ -884,15 +884,15 @@ export function getNoPermissionMember(nodeId: string, unitIds: string[]) {
 export const getURLMetaBatch = (urls: string[]) => axios.post(Url.GET_URL_META_BATCH, { urls });
 
 export const getUploadCertificate = (params: { count: number; data: string; nodeId?: string; type: number }) => {
-  return axios.post<IApiWrapper & { data: IGetUploadCertificateResponse[] }>(Url.UPLOAD_PRESIGNED_URL, params);
+    return axios.post<IApiWrapper & { data: IGetUploadCertificateResponse[] }>(Url.UPLOAD_PRESIGNED_URL, params);
 };
 
 export const getS3Callback = (params: { resourceKeys: string[]; type: number }) => {
-  return axios.post<IApiWrapper & { data: IGetUploadCertificateResponse[] }>(Url.UPLOAD_CALLBACK, params);
+    return axios.post<IApiWrapper & { data: IGetUploadCertificateResponse[] }>(Url.UPLOAD_CALLBACK, params);
 };
 
 export const getSubscribeActiveEvents = () => {
-  return axios.get<IApiWrapper & { data: ISubscribeActiveEventResponse }>(Url.SUBSCRIBE_ACTIVE_EVENT);
+    return axios.get<IApiWrapper & { data: ISubscribeActiveEventResponse }>(Url.SUBSCRIBE_ACTIVE_EVENT);
 };
 
 /**
@@ -900,7 +900,7 @@ export const getSubscribeActiveEvents = () => {
  * @returns
  */
 export const getRoleList = () => {
-  return axios.get<IApiWrapper & { data: IGetRoleListResponse }>(Url.GET_ROLE_LIST);
+    return axios.get<IApiWrapper & { data: IGetRoleListResponse }>(Url.GET_ROLE_LIST);
 };
 
 /**
@@ -909,7 +909,7 @@ export const getRoleList = () => {
  * @returns
  */
 export const createRole = (roleName: string) => {
-  return axios.post<IApiWrapper>(Url.CREATE_NEW_ROLE, { roleName });
+    return axios.post<IApiWrapper>(Url.CREATE_NEW_ROLE, { roleName });
 };
 
 /**
@@ -918,7 +918,7 @@ export const createRole = (roleName: string) => {
  * @returns
  */
 export const deleteOrgRole = (roleId: string) => {
-  return axios.delete<IApiWrapper>(urlcat(Url.DELETE_ORG_ROLE, { roleId }));
+    return axios.delete<IApiWrapper>(urlcat(Url.DELETE_ORG_ROLE, { roleId }));
 };
 
 /**
@@ -928,7 +928,7 @@ export const deleteOrgRole = (roleId: string) => {
  * @returns
  */
 export const updateOrgRole = (roleId: string, roleName: string) => {
-  return axios.patch<IApiWrapper>(urlcat(Url.UPDATE_ORG_ROLE, { roleId }), { roleName });
+    return axios.patch<IApiWrapper>(urlcat(Url.UPDATE_ORG_ROLE, { roleId }), { roleName });
 };
 
 /**
@@ -938,10 +938,10 @@ export const updateOrgRole = (roleId: string, roleName: string) => {
  * @returns
  */
 export const getRoleMemberList = (roleId: string, page: { pageSize: number; pageNo: number }) => {
-  const pageObjectParams = JSON.stringify(page);
-  return axios.get<IApiWrapper & { data: IGetRoleMemberListResponse }>(urlcat(Url.GET_MEMBER_LIST_BY_ROLE, { roleId }), {
-    params: { pageObjectParams },
-  });
+    const pageObjectParams = JSON.stringify(page);
+    return axios.get<IApiWrapper & { data: IGetRoleMemberListResponse }>(urlcat(Url.GET_MEMBER_LIST_BY_ROLE, { roleId }), {
+        params: { pageObjectParams },
+    });
 };
 
 /**
@@ -951,7 +951,7 @@ export const getRoleMemberList = (roleId: string, page: { pageSize: number; page
  * @returns
  */
 export const addRoleMember = (roleId: string, unitList: { id: string; type: MemberType }[]) => {
-  return axios.post<IApiWrapper>(urlcat(Url.ADD_ROLE_MEMBER, { roleId }), { unitList });
+    return axios.post<IApiWrapper>(urlcat(Url.ADD_ROLE_MEMBER, { roleId }), { unitList });
 };
 
 /**
@@ -961,7 +961,7 @@ export const addRoleMember = (roleId: string, unitList: { id: string; type: Memb
  * @returns
  */
 export const deleteRoleMember = (roleId: string, unitIds: string[]) => {
-  return axios.delete<IApiWrapper>(urlcat(Url.DELETE_ROLE_MEMBER, { roleId }), { data: { unitIds } });
+    return axios.delete<IApiWrapper>(urlcat(Url.DELETE_ROLE_MEMBER, { roleId }), { data: { unitIds } });
 };
 
 /**
@@ -969,10 +969,10 @@ export const deleteRoleMember = (roleId: string, unitIds: string[]) => {
  * @returns
  */
 export const initRoles = () => {
-  return axios.post<IApiWrapper>(Url.INIT_ROLE);
+    return axios.post<IApiWrapper>(Url.INIT_ROLE);
 };
 
 // recently browsed folder
 export const getRecentlyBrowsedFolder = () => {
-  return axios.get<IApiWrapper & { data: IRecentlyBrowsedFolder[] }>(Url.NODE_RECENTLY_BROWSED);
+    return axios.get<IApiWrapper & { data: IRecentlyBrowsedFolder[] }>(Url.NODE_RECENTLY_BROWSED);
 };

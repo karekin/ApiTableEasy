@@ -23,10 +23,10 @@
   },
   "dependencies": {
     "@apitable/api-client": "workspace:*",
-    "@apitable/components": "1.4.0",
+    "@apitable/components": "workspace:*",
     "@apitable/core": "workspace:*",
-    "apitable-i18n-lang": "^1.13.0",
-    "@apitable/icons": "1.4.0",
+    "apitable-i18n-lang": "^1.14.0",
+    "@apitable/icons": "workspace:*",
     "@apitable/react-flow": "^9.6.12",
     "@apitable/widget-sdk": "workspace:*",
     "@floating-ui/react": "0.24.5",

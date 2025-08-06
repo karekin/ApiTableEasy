@@ -23,12 +23,12 @@
   "license": "AGPL-3.0",
   "scripts": {
     "copy:static": "copyfiles -f src/static/*.png dist/static",
-    "start": "rm -rf ./dist && pnpm run copy:static && concurrently \"tsc -w\" \"tsc-alias -w\"",
+    "start": "rimraf ./dist && pnpm run copy:static && concurrently \"tsc -w\" \"tsc-alias -w\"",
     "test": "jest --silent",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "build": "rm -rf ./dist && pnpm copy:static && tsc && tsc-alias",
+    "build": "rimraf ./dist && pnpm copy:static && tsc && tsc-alias",
     "lint": "eslint src/ examples/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",
     "docs": "node docs.js"
@@ -38,9 +38,9 @@
     "react-dom": "18.2.0"
   },
   "dependencies": {
-    "@apitable/components": "1.4.0",
+    "@apitable/components": "workspace:*",
     "@apitable/core": "workspace:*",
-    "@apitable/icons": "1.4.0",
+    "@apitable/icons": "workspace:*",
     "@testing-library/react-hooks": "^7.0.1",
     "ahooks": "^3.5.0",
     "antd": "4.23.5",

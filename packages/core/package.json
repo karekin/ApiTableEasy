@@ -6,7 +6,7 @@
     "types": "dist/index.d.ts",
     "sideEffects": false,
     "scripts": {
-        "build": "rm -rf ./dist && tsc && tsc-alias",
+        "build": "rimraf ./dist && tsc && tsc-alias",
         "build-cjs": "rm -rf ./dist && tsc --module commonjs && tsc-alias",
         "build-rollup": "rm -rf ./dist && rollup -c --bundleConfigAsCjs && tsc-alias",
         "build:publish": "rm -rf ./dist && tsc -p tsconfig.publish.json && tsc-alias -p tsconfig.publish.json && mv ./dist/index-publish.d.ts ./dist/index.d.ts",
@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "@apitable/i18n": "^1.0.4",
-        "apitable-i18n-lang": "1.13.0",
+        "apitable-i18n-lang": "^1.14.0",
         "@types/lodash": "^4.14.197",
         "@types/socket.io-client": "^1.4.36",
         "apphook": "1.0.6",

@@ -174,7 +174,7 @@ export function delNode(nodeId: string) {
   if (getBrowserDatabusApiEnabled()) {
     WasmApi.getInstance()
       .delete_cache(nodeId)
-      .then((result) => {
+      .then((result: any) => {
         console.log('delete indexDb cache', result);
       });
   }
