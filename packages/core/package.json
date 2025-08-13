@@ -7,16 +7,10 @@
     "sideEffects": false,
     "scripts": {
         "build": "rimraf ./dist && tsc && tsc-alias",
-        "build-cjs": "rm -rf ./dist && tsc --module commonjs && tsc-alias",
-        "build-rollup": "rm -rf ./dist && rollup -c --bundleConfigAsCjs && tsc-alias",
-        "build:publish": "rm -rf ./dist && tsc -p tsconfig.publish.json && tsc-alias -p tsconfig.publish.json && mv ./dist/index-publish.d.ts ./dist/index.d.ts",
-        "start": "concurrently \"tsc -w\" \"tsc-alias -w\"",
-        "test": "TZ=Asia/Shanghai jest",
-        "test:databus": "TZ=Asia/Shanghai jest databus",
-        "test:watch": "TZ=Asia/Shanghai jest --watch",
-        "test:cov": "TZ=Asia/Shanghai jest --coverage",
-        "lint": "eslint src",
-        "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+        "build-cjs": "rimraf ./dist && tsc --module commonjs && tsc-alias",
+        "build-rollup": "rimraf ./dist && rollup -c --bundleConfigAsCjs && tsc-alias",
+        "build:publish": "rimraf ./dist && tsc -p tsconfig.publish.json && tsc-alias -p tsconfig.publish.json && mv ./dist/index-publish.d.ts ./dist/index.d.ts",
+        "start": "concurrently \"tsc -w\" \"tsc-alias -w\""
     },
     "author": "APITable Ltd. <support@apitable.com>",
     "license": "AGPL-3.0",
