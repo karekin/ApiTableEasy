@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      glob-parent:
+        specifier: 5.1.2
+        version: 5.1.2
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
     devDependencies:
       '@babel/core':
         specifier: 7.22.20

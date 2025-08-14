@@ -1,4 +1,0 @@
-删除
-@apitable/api-client
-发布
-apitable-i18n-lang

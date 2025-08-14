@@ -7,12 +7,16 @@
         "build:pre": "nx run-many -t build -p  @apitable/core @apitable/icons --parallel=2 && pnpm -F @apitable/components run build",
         "build:dst": "nx run-many -t build -p  @apitable/widget-sdk @apitable/api-client --parallel=2 && pnpm -F @apitable/core run build-cjs",
         "start:room-server": "nx start:dev @apitable/room-server",
-        "sd": "npm run start:datasheet"
+        "sd": "pnpm -F @apitable/datasheet run dev"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "packageManager": "pnpm@10.10.0",
+    "dependencies": {
+        "glob-parent": "5.1.2",
+        "react": "18.2.0"
+    },
     "devDependencies": {
         "@babel/core": "7.22.20",
         "@commitlint/cli": "17.7.1",
