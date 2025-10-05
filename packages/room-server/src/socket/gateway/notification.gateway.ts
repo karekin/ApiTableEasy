@@ -29,12 +29,10 @@ import { INotificationRo } from 'socket/ros/notification/notification.ro';
 import { WatchSpaceRo } from 'socket/ros/notification/watch-space.ro';
 import { NotificationService } from 'socket/services/notification/notification.service';
 
-@WebSocketGateway(
-  GatewayConstants.NOTIFICATION_PORT,
-  {
-    path: GatewayConstants.NOTIFICATION_PATH,
-    pingTimeout: GatewayConstants.PING_TIMEOUT
-  })
+@WebSocketGateway({
+  path: GatewayConstants.NOTIFICATION_PATH,
+  pingTimeout: GatewayConstants.PING_TIMEOUT
+})
 export class NotificationGateway {
   constructor(
     private readonly notificationService: NotificationService

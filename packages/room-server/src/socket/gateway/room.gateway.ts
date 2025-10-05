@@ -27,7 +27,7 @@ import { RoomService } from 'socket/services/room/room.service';
 import { Span } from '@metinseylan/nestjs-opentelemetry';
 
 @UseFilters(HttpExceptionFilter)
-@WebSocketGateway(GatewayConstants.ROOM_PORT, {
+@WebSocketGateway({
   path: GatewayConstants.ROOM_PATH,
   namespace: GatewayConstants.ROOM_NAMESPACE,
   pingTimeout: GatewayConstants.PING_TIMEOUT,
